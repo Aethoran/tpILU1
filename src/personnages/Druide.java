@@ -1,5 +1,6 @@
 package personnages;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
 public class Druide {
@@ -31,15 +32,24 @@ public class Druide {
 	
 	public void preparerPotion() {
 		Random random = new Random();
-		int puissancePotion = effetPotionMin + random.nextInt(effetPotionMax-effetPotionMin+1);
-		if (puissancePotion>7) {
-			System.out.println("J'ai préparé une super potion de force " + puissancePotion);
+		this.forcePotion = effetPotionMin + random.nextInt(effetPotionMax-effetPotionMin+1);
+		if (forcePotion>7) {
+			System.out.println("J'ai préparé une super potion de force " + forcePotion);
 		}
 		else {
-			System.out.println("« Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force " + puissancePotion);
+			System.out.println("« Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force " + forcePotion);
 		}
 		
 	}
+	
+	public void booster (Gaulois gaulois) {
+		if (gaulois.getNom()=="Obélix") {
+			parler("Non, Obelix!... Tu n'auras pas de potion magique !");
+		}
+		else {
+			gaulois.boirePotion(forcePotion);
+		}
+	}	
 
 	private String prendreParole() {
 		return "Le druide " + nom + " : ";
