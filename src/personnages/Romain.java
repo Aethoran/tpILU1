@@ -36,7 +36,7 @@ public class Romain {
 
 
 	public Equipement[] recevoirCoup(int forceCoup) {
-		Equipement[] equipementEjecte = null;
+		Equipement[] equipementEjecte = new Equipement[nbEquipement];
 		// Precondition
 		assert force > 0;
 		int oldForce = force;
